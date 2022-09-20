@@ -6,11 +6,13 @@ if [[ "$INPUT_KEY" ]]; then
     echo -e "${INPUT_KEY}" > key   # Creates a file with the key content
     chmod 400 key                  # Set the key as Read-Only
     echo "Trying SCP process with SSH key"
-    # Runs the SCP command
+    # If it is recursive
     if [ $INPUT_ISRECURSIVE == "1"]
     then
+        # Runs the SCP command
         scp -r -P $INPUT_PORT -o StrictHostKeyChecking=no -i key $INPUT_ORIGIN "$INPUT_USERNAME"@"$INPUT_HOST":"$INPUT_DESTINATION"
     else
+        # Runs the SCP command
         scp -r -P $INPUT_PORT -o StrictHostKeyChecking=no -i key $INPUT_ORIGIN "$INPUT_USERNAME"@"$INPUT_HOST":"$INPUT_DESTINATION"
     fi
 else
