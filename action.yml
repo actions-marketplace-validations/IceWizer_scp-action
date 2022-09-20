@@ -28,6 +28,9 @@ inputs:
   # $8
   passphrase:
     description: 'Passphrase for SSH key'
+    # $9
+  isRecursive:
+    description: '1 if is it recursive'
 outputs:
   time:
     description: 'Returns the time when the script ran'
